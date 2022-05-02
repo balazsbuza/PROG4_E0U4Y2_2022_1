@@ -152,6 +152,11 @@
             Hospital database.
             </summary>
         </member>
+        <member name="M:Hospital.Data.Tables.HospitalDbContext.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hospital.Data.Tables.HospitalDbContext"/> class.
+            </summary>
+        </member>
         <member name="P:Hospital.Data.Tables.HospitalDbContext.Doctors">
             <summary>
             Gets or sets Doctors in db.

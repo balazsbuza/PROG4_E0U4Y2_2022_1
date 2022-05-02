@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Hospital.Data\Hospital.Data.csproj" />
+    <ProjectReference Include="..\Hospital.Logic.Tests\Hospital.Logic.Tests.csproj" />
+    <ProjectReference Include="..\Hospital.Logic\Hospital.Logic.csproj" />
+    <ProjectReference Include="..\Hospital.Program\Hospital.Program.csproj" />
+    <ProjectReference Include="..\Hospital.Repository\Hospital.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

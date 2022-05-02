@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hospital.Program</name>
+    </assembly>
+    <members>
+        <member name="T:Hospital.Program.Factory">
+            <summary>
+            Factory for initiating.
+            </summary>
+        </member>
+        <member name="M:Hospital.Program.Factory.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hospital.Program.Factory"/> class.
+            Factory for initiating.
+            </summary>
+        </member>
+        <member name="M:Hospital.Program.Factory.GetHospitalLogicBase">
+            <summary>
+            Gets HospitalLogicBase to use.
+            </summary>
+            <returns>HospitalLogicBase.</returns>
+        </member>
+        <member name="M:Hospital.Program.Factory.GetClinicDoctorLogic">
+            <summary>
+            Gets ClinicDoctorLogic to use.
+            </summary>
+            <returns>ClinicDoctorLogic.</returns>
+        </member>
+        <member name="M:Hospital.Program.Factory.GetPatientTreatmentLogic">
+            <summary>
+            Gets PatientTreatmentLogic to use.
+            </summary>
+            <returns>PatientTreatmentLogic.</returns>
+        </member>
+        <member name="T:Hospital.Program.ProgramBase">
+            <summary>
+            Base program.
+            </summary>
+        </member>
+        <member name="M:Hospital.Program.ProgramBase.Main">
+            <summary>
+            Main.
+            </summary>
+        </member>
+    </members>
+</doc>

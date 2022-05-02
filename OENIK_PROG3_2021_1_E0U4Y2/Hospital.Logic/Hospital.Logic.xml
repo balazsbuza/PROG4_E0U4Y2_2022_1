@@ -1,0 +1,413 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hospital.Logic</name>
+    </assembly>
+    <members>
+        <member name="T:Hospital.Logic.ClinicDoctorLogic">
+            <summary>
+            Hospital Clinic and Doctor logic.
+            </summary>
+        </member>
+        <member name="M:Hospital.Logic.ClinicDoctorLogic.#ctor(Hospital.Repository.Repositories.IClinicRepository,Hospital.Repository.Repositories.IDoctorRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hospital.Logic.ClinicDoctorLogic"/> class.
+            </summary>
+            <param name="crepo">clinicRepo.</param>
+            <param name="drepo">doctorRepo.</param>
+        </member>
+        <member name="M:Hospital.Logic.ClinicDoctorLogic.AddOneClinic(Hospital.Data.Tables.Clinic)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.ClinicDoctorLogic.AddOneDoctor(Hospital.Data.Tables.Doctor)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.ClinicDoctorLogic.ChangeOneClinicAddress(System.Int32,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.ClinicDoctorLogic.ChangeOneDoctorDegree(System.Int32,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.ClinicDoctorLogic.GetAllClinics">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.ClinicDoctorLogic.GetAllDoctors">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.ClinicDoctorLogic.GetDoctorWorkAddress">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.ClinicDoctorLogic.GetDoctorWorkAddressAsync">
+            <summary>
+            Async method to GetDoctorWorkAddress.
+            </summary>
+            <returns>Task to run the GetDoctorWorkAddress method.</returns>
+        </member>
+        <member name="M:Hospital.Logic.ClinicDoctorLogic.GetOneClinic(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.ClinicDoctorLogic.GetOneDoctor(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.ClinicDoctorLogic.RemoveOneClinic(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.ClinicDoctorLogic.RemoveOneDoctor(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Hospital.Logic.HospitalLogicBase">
+            <summary>
+            Hospital logic main.
+            </summary>
+        </member>
+        <member name="M:Hospital.Logic.HospitalLogicBase.#ctor(Hospital.Repository.Repositories.IClinicRepository,Hospital.Repository.Repositories.IDoctorRepository,Hospital.Repository.Repositories.IPatientRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hospital.Logic.HospitalLogicBase"/> class.
+            </summary>
+            <param name="crepo">clinicRepo.</param>
+            <param name="drepo">doctorRepo.</param>
+            <param name="prepo">patientRepo.</param>
+        </member>
+        <member name="M:Hospital.Logic.HospitalLogicBase.GetClinicGender">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.HospitalLogicBase.GetClinicGenderAsync">
+            <summary>
+            Async method to GetClinicGender.
+            </summary>
+            <returns>Task to run the GetClinicGender method.</returns>
+        </member>
+        <member name="T:Hospital.Logic.IClinicDoctorLogic">
+            <summary>
+            Clinic and doctor logic interface creation.
+            </summary>
+        </member>
+        <member name="M:Hospital.Logic.IClinicDoctorLogic.GetOneClinic(System.Int32)">
+            <summary>
+            Get one clinic.
+            </summary>
+            <param name="id">The id of the entity.</param>
+            <returns>A clinic by Id.</returns>
+        </member>
+        <member name="M:Hospital.Logic.IClinicDoctorLogic.GetOneDoctor(System.Int32)">
+            <summary>
+            Get one doctor.
+            </summary>
+            <param name="id">The id of the entity.</param>
+            <returns>A doctor by Id.</returns>
+        </member>
+        <member name="M:Hospital.Logic.IClinicDoctorLogic.GetAllClinics">
+            <summary>
+            Get every Clinic.
+            </summary>
+            <returns>A list of Clinics.</returns>
+        </member>
+        <member name="M:Hospital.Logic.IClinicDoctorLogic.GetAllDoctors">
+            <summary>
+            Get every Doctor.
+            </summary>
+            <returns>A list of Doctors.</returns>
+        </member>
+        <member name="M:Hospital.Logic.IClinicDoctorLogic.AddOneClinic(Hospital.Data.Tables.Clinic)">
+            <summary>
+            Add a clinic.
+            </summary>
+            <param name="entity">Entity of the clinic.</param>
+            <returns>The Id of the new entity.</returns>
+        </member>
+        <member name="M:Hospital.Logic.IClinicDoctorLogic.AddOneDoctor(Hospital.Data.Tables.Doctor)">
+            <summary>
+            Add a doctor.
+            </summary>
+            <param name="entity">Entity of the doctor.</param>
+            <returns>The Id of the new entity.</returns>
+        </member>
+        <member name="M:Hospital.Logic.IClinicDoctorLogic.ChangeOneClinicAddress(System.Int32,System.String)">
+            <summary>
+            Change one clinic's address.
+            </summary>
+            <param name="id">The id of the entity.</param>
+            <param name="address">The new address.</param>
+        </member>
+        <member name="M:Hospital.Logic.IClinicDoctorLogic.ChangeOneDoctorDegree(System.Int32,System.String)">
+            <summary>
+            Change one doctor's degree.
+            </summary>
+            <param name="id">The id of the entity.</param>
+            <param name="degree">The new degree.</param>
+        </member>
+        <member name="M:Hospital.Logic.IClinicDoctorLogic.RemoveOneClinic(System.Int32)">
+            <summary>
+            Remove a Clinic.
+            </summary>
+            <param name="id">Id of the entity.</param>
+            <returns>True if the entity got removed.</returns>
+        </member>
+        <member name="M:Hospital.Logic.IClinicDoctorLogic.RemoveOneDoctor(System.Int32)">
+            <summary>
+            Remove a Doctor.
+            </summary>
+            <param name="id">Id of the entity.</param>
+            <returns>True if the entity got removed.</returns>
+        </member>
+        <member name="M:Hospital.Logic.IClinicDoctorLogic.GetDoctorWorkAddress">
+            <summary>
+            NON-CRUD gets every doctor and their workaddress.
+            </summary>
+            <returns>Every doctor and their workaddress.</returns>
+        </member>
+        <member name="T:Hospital.Logic.DoctorWorkaddress">
+            <summary>
+            Class for non crud response.
+            </summary>
+        </member>
+        <member name="P:Hospital.Logic.DoctorWorkaddress.NumberOfDoctors">
+            <summary>
+            Gets or sets the number of doctor's.
+            </summary>
+        </member>
+        <member name="P:Hospital.Logic.DoctorWorkaddress.ClinicAddress">
+            <summary>
+            Gets or sets the clinic's address.
+            </summary>
+        </member>
+        <member name="M:Hospital.Logic.DoctorWorkaddress.ToString">
+            <summary>
+            Override ToString.
+            </summary>
+            <returns>The doctor's name and the number doctors working there.</returns>
+        </member>
+        <member name="M:Hospital.Logic.DoctorWorkaddress.Equals(System.Object)">
+            <summary>
+            Override Equals() for testing.
+            </summary>
+            <param name="obj">Id of the entity.</param>
+            <returns>True if the objects are equal.</returns>
+        </member>
+        <member name="M:Hospital.Logic.DoctorWorkaddress.GetHashCode">
+            <summary>
+            Override GetHasCode() for testing.
+            </summary>
+            <returns>The hash.</returns>
+        </member>
+        <member name="T:Hospital.Logic.IHospitalLogicBase">
+            <summary>
+            Hospital base logic interface creation.
+            </summary>
+        </member>
+        <member name="M:Hospital.Logic.IHospitalLogicBase.GetClinicGender">
+            <summary>
+            NON-CRUD gets every clinic and their patients by gender.
+            </summary>
+            <returns>Every clinic and their patient count by gender.</returns>
+        </member>
+        <member name="T:Hospital.Logic.ClinicGender">
+            <summary>
+            Class for non crud response.
+            </summary>
+        </member>
+        <member name="P:Hospital.Logic.ClinicGender.ClinicName">
+            <summary>
+            Gets or sets the clinic's name.
+            </summary>
+        </member>
+        <member name="P:Hospital.Logic.ClinicGender.NumberofM">
+            <summary>
+            Gets or sets the number of Males.
+            </summary>
+        </member>
+        <member name="P:Hospital.Logic.ClinicGender.NumberofF">
+            <summary>
+            Gets or sets the number of Females.
+            </summary>
+        </member>
+        <member name="P:Hospital.Logic.ClinicGender.NumberofO">
+            <summary>
+            Gets or sets the number of Others.
+            </summary>
+        </member>
+        <member name="M:Hospital.Logic.ClinicGender.ToString">
+            <summary>
+            Override ToString.
+            </summary>
+            <returns>The clinicname, gender, number of genders.</returns>
+        </member>
+        <member name="M:Hospital.Logic.ClinicGender.Equals(System.Object)">
+            <summary>
+            Override Equals() for testing.
+            </summary>
+            <param name="obj">Id of the entity.</param>
+            <returns>True if the objects are equal.</returns>
+        </member>
+        <member name="M:Hospital.Logic.ClinicGender.GetHashCode">
+            <summary>
+            Override GetHasCode() for testing.
+            </summary>
+            <returns>The hash.</returns>
+        </member>
+        <member name="T:Hospital.Logic.IPatientTreatmentLogic">
+            <summary>
+            Patient and treatment interface creation.
+            </summary>
+        </member>
+        <member name="M:Hospital.Logic.IPatientTreatmentLogic.GetOnePatient(System.Int32)">
+            <summary>
+            Get one Patient.
+            </summary>
+            <param name="id">The id of the entity.</param>
+            <returns>A patient by Id.</returns>
+        </member>
+        <member name="M:Hospital.Logic.IPatientTreatmentLogic.GetOneTreatment(System.Int32)">
+            <summary>
+            Get one treatment.
+            </summary>
+            <param name="id">The id of the entity.</param>
+            <returns>A clinic by Id.</returns>
+        </member>
+        <member name="M:Hospital.Logic.IPatientTreatmentLogic.GetAllPatients">
+            <summary>
+            Get every Patient.
+            </summary>
+            <returns>A list of Patients.</returns>
+        </member>
+        <member name="M:Hospital.Logic.IPatientTreatmentLogic.GetAllTreatments">
+            <summary>
+            Get every Treatment.
+            </summary>
+            <returns>A list of Treatments.</returns>
+        </member>
+        <member name="M:Hospital.Logic.IPatientTreatmentLogic.AddOnePatient(Hospital.Data.Tables.Patient)">
+            <summary>
+            Add a patient.
+            </summary>
+            <param name="entity">Entity of the patient.</param>
+            <returns>The Id of the new entity.</returns>
+        </member>
+        <member name="M:Hospital.Logic.IPatientTreatmentLogic.AddOneTreatment(Hospital.Data.Tables.Treatment)">
+            <summary>
+            Add a treatment.
+            </summary>
+            <param name="entity">Entity of the treatment.</param>
+            <returns>The Id of the new entity.</returns>
+        </member>
+        <member name="M:Hospital.Logic.IPatientTreatmentLogic.ChangeOnePatientDisease(System.Int32,System.String)">
+            <summary>
+            Change one patient's disease.
+            </summary>
+            <param name="id">The id of the entity.</param>
+            <param name="disease">The new disease.</param>
+        </member>
+        <member name="M:Hospital.Logic.IPatientTreatmentLogic.ChangeOneTreatmentDescription(System.Int32,System.String)">
+            <summary>
+            Change one treatment's description.
+            </summary>
+            <param name="id">The id of the entity.</param>
+            <param name="desc">The new description.</param>
+        </member>
+        <member name="M:Hospital.Logic.IPatientTreatmentLogic.RemoveOnePatient(System.Int32)">
+            <summary>
+            Remove a Patient.
+            </summary>
+            <param name="id">Id of the entity.</param>
+            <returns>True if the entity got removed.</returns>
+        </member>
+        <member name="M:Hospital.Logic.IPatientTreatmentLogic.RemoveOneTreatment(System.Int32)">
+            <summary>
+            Remove a Treatment.
+            </summary>
+            <param name="id">Id of the entity.</param>
+            <returns>True if the entity got removed.</returns>
+        </member>
+        <member name="M:Hospital.Logic.IPatientTreatmentLogic.GetPatientLastTreatment">
+            <summary>
+            NON-CRUD gets every patient and their last treatmenttime.
+            </summary>
+            <returns>Every patient and their last treatmenttime.</returns>
+        </member>
+        <member name="T:Hospital.Logic.PatientLastTreatment">
+            <summary>
+            Class for non crud response.
+            </summary>
+        </member>
+        <member name="P:Hospital.Logic.PatientLastTreatment.PatientName">
+            <summary>
+            Gets or sets the patient's name.
+            </summary>
+        </member>
+        <member name="P:Hospital.Logic.PatientLastTreatment.TreatmentTime">
+            <summary>
+            Gets or sets the last treatmenttime.
+            </summary>
+        </member>
+        <member name="M:Hospital.Logic.PatientLastTreatment.ToString">
+            <summary>
+            Override ToString.
+            </summary>
+            <returns>The patient's name and the last treatmenttime.</returns>
+        </member>
+        <member name="M:Hospital.Logic.PatientLastTreatment.Equals(System.Object)">
+            <summary>
+            Override Equals() for testing.
+            </summary>
+            <param name="obj">Id of the entity.</param>
+            <returns>True if the objects are equal.</returns>
+        </member>
+        <member name="M:Hospital.Logic.PatientLastTreatment.GetHashCode">
+            <summary>
+            Override GetHasCode() for testing.
+            </summary>
+            <returns>The hash.</returns>
+        </member>
+        <member name="T:Hospital.Logic.PatientTreatmentLogic">
+            <summary>
+            Hospital Patient and Doctor logic.
+            </summary>
+        </member>
+        <member name="M:Hospital.Logic.PatientTreatmentLogic.#ctor(Hospital.Repository.Repositories.IPatientRepository,Hospital.Repository.Repositories.ITreatmentRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hospital.Logic.PatientTreatmentLogic"/> class.
+            </summary>
+            <param name="prepo">patientRepo.</param>
+            <param name="trepo">treatmentRepo.</param>
+        </member>
+        <member name="M:Hospital.Logic.PatientTreatmentLogic.AddOnePatient(Hospital.Data.Tables.Patient)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.PatientTreatmentLogic.AddOneTreatment(Hospital.Data.Tables.Treatment)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.PatientTreatmentLogic.ChangeOnePatientDisease(System.Int32,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.PatientTreatmentLogic.ChangeOneTreatmentDescription(System.Int32,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.PatientTreatmentLogic.GetAllPatients">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.PatientTreatmentLogic.GetAllTreatments">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.PatientTreatmentLogic.GetOnePatient(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.PatientTreatmentLogic.GetOneTreatment(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.PatientTreatmentLogic.GetPatientLastTreatment">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.PatientTreatmentLogic.GetPatientLastTreatmentAsync">
+            <summary>
+            Async method to GetPatientLastTreatment.
+            </summary>
+            <returns>Task to run the GetPatientLastTreatment method.</returns>
+        </member>
+        <member name="M:Hospital.Logic.PatientTreatmentLogic.RemoveOnePatient(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Hospital.Logic.PatientTreatmentLogic.RemoveOneTreatment(System.Int32)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

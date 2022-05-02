@@ -1,0 +1,321 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hospital.Data</name>
+    </assembly>
+    <members>
+        <member name="T:Hospital.Data.Tables.Clinic">
+            <summary>
+            Clinic table.
+            </summary>
+        </member>
+        <member name="M:Hospital.Data.Tables.Clinic.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hospital.Data.Tables.Clinic"/> class.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Clinic.ClinicId">
+            <summary>
+            Gets or sets the Id of the Clinic.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Clinic.Name">
+            <summary>
+            Gets or sets the Name of the Clinic.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Clinic.Company">
+            <summary>
+            Gets or sets the Company of the clinic.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Clinic.Officehours">
+            <summary>
+            Gets or sets the Officehours of the clinic.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Clinic.Phone">
+            <summary>
+            Gets or sets the Phone of the clinic.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Clinic.Address">
+            <summary>
+            Gets or sets the Address of the clinic.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Clinic.Doctors">
+            <summary>
+            Gets the Doctors of the clinic.
+            </summary>
+        </member>
+        <member name="M:Hospital.Data.Tables.Clinic.ToString">
+            <summary>
+            Override ToString for testing.
+            </summary>
+            <returns>String output.</returns>
+        </member>
+        <member name="M:Hospital.Data.Tables.Clinic.Equals(System.Object)">
+            <summary>
+            Override Equals for testing.
+            </summary>
+            <returns>True if the two objects are the same.</returns>
+            <param name="obj">The object we are checking.</param>
+        </member>
+        <member name="M:Hospital.Data.Tables.Clinic.GetHashCode">
+            <summary>
+            Override GetHashCode for testing.
+            </summary>
+            <returns>The Id.</returns>
+        </member>
+        <member name="T:Hospital.Data.Tables.Doctor">
+            <summary>
+            Doctor table.
+            </summary>
+        </member>
+        <member name="M:Hospital.Data.Tables.Doctor.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hospital.Data.Tables.Doctor"/> class.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Doctor.DoctorId">
+            <summary>
+            Gets or sets the Id of the doctor.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Doctor.Name">
+            <summary>
+            Gets or sets the Name of the doctor.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Doctor.Degree">
+            <summary>
+            Gets or sets the Degree of the doctor.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Doctor.Dateofbirth">
+            <summary>
+            Gets or sets the Dateofbirth of the doctor.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Doctor.Sealnumber">
+            <summary>
+            Gets or sets the Sealnumber of the doctor.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Doctor.Specialization">
+            <summary>
+            Gets or sets the Specialization of the doctor.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Doctor.Patients">
+            <summary>
+            Gets the Patients of the doctor.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Doctor.Treatments">
+            <summary>
+            Gets the Treatments of the doctor.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Doctor.Clinic">
+            <summary>
+            Gets or sets the Doctor's clinic.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Doctor.ClinicId">
+            <summary>
+            Gets or sets the Clinicsid of the doctor.
+            </summary>
+        </member>
+        <member name="M:Hospital.Data.Tables.Doctor.ToString">
+            <summary>
+            Override ToString for testing.
+            </summary>
+            <returns>String output.</returns>
+        </member>
+        <member name="M:Hospital.Data.Tables.Doctor.Equals(System.Object)">
+            <summary>
+            Override Equals for testing.
+            </summary>
+            <returns>True if the two objects are the same.</returns>
+            <param name="obj">The object we are checking.</param>
+        </member>
+        <member name="M:Hospital.Data.Tables.Doctor.GetHashCode">
+            <summary>
+            Override GetHashCode for testing.
+            </summary>
+            <returns>The Id.</returns>
+        </member>
+        <member name="T:Hospital.Data.Tables.HospitalDbContext">
+            <summary>
+            Hospital database.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.HospitalDbContext.Doctors">
+            <summary>
+            Gets or sets Doctors in db.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.HospitalDbContext.Patients">
+            <summary>
+            Gets or sets Patients in db.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.HospitalDbContext.Clinics">
+            <summary>
+            Gets or sets Clinics in db.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.HospitalDbContext.Treatments">
+            <summary>
+            Gets or sets Treatments in db.
+            </summary>
+        </member>
+        <member name="M:Hospital.Data.Tables.HospitalDbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            DB configuration.
+            </summary>
+            <param name="optionsBuilder">Building options.</param>
+        </member>
+        <member name="M:Hospital.Data.Tables.HospitalDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Creates tables and inserts records into it.
+            </summary>
+            <param name="modelBuilder">Model building.</param>
+        </member>
+        <member name="T:Hospital.Data.Tables.Patient">
+            <summary>
+            Patient table.
+            </summary>
+        </member>
+        <member name="M:Hospital.Data.Tables.Patient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hospital.Data.Tables.Patient"/> class.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Patient.PatientId">
+            <summary>
+            Gets or sets the Id of the patient.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Patient.Name">
+            <summary>
+            Gets or sets the Name of the patient.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Patient.Gender">
+            <summary>
+            Gets or sets the Gender of the patient.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Patient.Dateofbirth">
+            <summary>
+            Gets or sets the Dateofbirth of the patient.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Patient.Disease">
+            <summary>
+            Gets or sets the Disease of the patient.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Patient.Nameofmother">
+            <summary>
+            Gets or sets the Name of the patient's mother.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Patient.Doctor">
+            <summary>
+            Gets or sets the doctor of the patient.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Patient.DoctorId">
+            <summary>
+            Gets or sets the doctorid of the patient.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Patient.Treatments">
+            <summary>
+            Gets the Treatments of the patient.
+            </summary>
+        </member>
+        <member name="M:Hospital.Data.Tables.Patient.ToString">
+            <summary>
+            Override ToString for testing.
+            </summary>
+            <returns>String output.</returns>
+        </member>
+        <member name="M:Hospital.Data.Tables.Patient.Equals(System.Object)">
+            <summary>
+            Override Equals for testing.
+            </summary>
+            <returns>True if the two objects are the same.</returns>
+            <param name="obj">The object we are checking.</param>
+        </member>
+        <member name="M:Hospital.Data.Tables.Patient.GetHashCode">
+            <summary>
+            Override GetHashCode for testing.
+            </summary>
+            <returns>The Id.</returns>
+        </member>
+        <member name="T:Hospital.Data.Tables.Treatment">
+            <summary>
+            Treatment table.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Treatment.TreatmentId">
+            <summary>
+            Gets or sets the Id of the TreatmentId.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Treatment.Doctor">
+            <summary>
+            Gets or sets the Doctor of the treatment.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Treatment.DoctorId">
+            <summary>
+            Gets or sets the Doctorid of the treatment.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Treatment.Patient">
+            <summary>
+            Gets or sets the Patient of the treatment.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Treatment.PatientId">
+            <summary>
+            Gets or sets the Patientid of the treatment.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Treatment.Description">
+            <summary>
+            Gets or sets the Description of the treatment.
+            </summary>
+        </member>
+        <member name="P:Hospital.Data.Tables.Treatment.Treatmenttime">
+            <summary>
+            Gets or sets the Treatmenttime of the treatment.
+            </summary>
+        </member>
+        <member name="M:Hospital.Data.Tables.Treatment.ToString">
+            <summary>
+            Override ToString for testing.
+            </summary>
+            <returns>String output.</returns>
+        </member>
+        <member name="M:Hospital.Data.Tables.Treatment.Equals(System.Object)">
+            <summary>
+            Override Equals for testing.
+            </summary>
+            <returns>True if the two objects are the same.</returns>
+            <param name="obj">The object we are checking.</param>
+        </member>
+        <member name="M:Hospital.Data.Tables.Treatment.GetHashCode">
+            <summary>
+            Override GetHashCode for testing.
+            </summary>
+            <returns>The Id.</returns>
+        </member>
+    </members>
+</doc>

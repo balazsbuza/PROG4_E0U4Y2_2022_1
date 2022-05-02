@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hospital.Logic.Tests</name>
+    </assembly>
+    <members>
+        <member name="T:Hospital.Logic.Tests.ClinicDoctorLogicTests">
+            <summary>
+            Tests for Clinic and Doctor logic.
+            </summary>
+        </member>
+        <member name="M:Hospital.Logic.Tests.ClinicDoctorLogicTests.TestGetDoctorWorkAddress">
+            <summary>
+            Tests for clinics and doctor by count.
+            </summary>
+        </member>
+        <member name="M:Hospital.Logic.Tests.ClinicDoctorLogicTests.TestAddClinic">
+            <summary>
+            Tests for adding a clinic.
+            </summary>
+        </member>
+        <member name="M:Hospital.Logic.Tests.ClinicDoctorLogicTests.TestChangeDoctor">
+            <summary>
+            Tests for changing doctor degree.
+            </summary>
+        </member>
+        <member name="M:Hospital.Logic.Tests.ClinicDoctorLogicTests.TestRemoveDoctor">
+            <summary>
+            Tests for removing a doctor.
+            </summary>
+        </member>
+        <member name="T:Hospital.Logic.Tests.HospitalLogicTests">
+            <summary>
+            Tests for Hospital logic.
+            </summary>
+        </member>
+        <member name="M:Hospital.Logic.Tests.HospitalLogicTests.TestGetClinicGender">
+            <summary>
+            Tests for clinics and number of patients by gender.
+            </summary>
+        </member>
+        <member name="T:Hospital.Logic.Tests.PatientTreatmentLogicTests">
+            <summary>
+            Tests for Patient and Treatment logic.
+            </summary>
+        </member>
+        <member name="M:Hospital.Logic.Tests.PatientTreatmentLogicTests.TestGetPatientLastTreatment">
+            <summary>
+            Tests for patient and last treatmenttime.
+            </summary>
+        </member>
+        <member name="M:Hospital.Logic.Tests.PatientTreatmentLogicTests.TestGetAllTreatment">
+            <summary>
+            Tests for GetAllTreatment.
+            </summary>
+        </member>
+        <member name="M:Hospital.Logic.Tests.PatientTreatmentLogicTests.TestGetOnePatient">
+            <summary>
+            Tests for GetOnePatient logic.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,295 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hospital.Repository</name>
+    </assembly>
+    <members>
+        <member name="T:Hospital.Repository.IRepository`1">
+            <summary>
+            IRepository interface creation.
+            </summary>
+            <typeparam name="T">Generic type parameter.</typeparam>
+        </member>
+        <member name="M:Hospital.Repository.IRepository`1.GetOne(System.Int32)">
+            <summary>
+            Get one entity by id.
+            </summary>
+            <param name="id">Id of the entity.</param>
+            <returns>One entity.</returns>
+        </member>
+        <member name="M:Hospital.Repository.IRepository`1.GetAll">
+            <summary>
+            Get all entities.
+            </summary>
+            <returns>Returns all entities.</returns>
+        </member>
+        <member name="M:Hospital.Repository.IRepository`1.Add(`0)">
+            <summary>
+            Add an entity.
+            </summary>
+            <param name="entity">Id of the entity.</param>
+            <returns>The Id of the new entity.</returns>
+        </member>
+        <member name="M:Hospital.Repository.IRepository`1.Remove(System.Int32)">
+            <summary>
+            Remove an entity.
+            </summary>
+            <param name="id">Id of the entity.</param>
+            <returns>True if the entity got removed.</returns>
+        </member>
+        <member name="T:Hospital.Repository.ClinicRepository">
+            <summary>
+            Clinic's Repository.
+            </summary>
+        </member>
+        <member name="M:Hospital.Repository.ClinicRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hospital.Repository.ClinicRepository"/> class.
+            </summary>
+            <param name="ctx">DBcontext.</param>
+        </member>
+        <member name="M:Hospital.Repository.ClinicRepository.ChangeAdress(System.Int32,System.String)">
+            <summary>
+            Change the adress of a clinic.
+            </summary>
+            <param name="id">Id of the clinic.</param>
+            <param name="newadress">The new address.</param>
+        </member>
+        <member name="M:Hospital.Repository.ClinicRepository.GetOne(System.Int32)">
+            <summary>
+            Get one clinic by id.
+            </summary>
+            <param name="id">The id of the clinic.</param>
+            <returns>A clinic by id.</returns>
+        </member>
+        <member name="M:Hospital.Repository.ClinicRepository.Add(Hospital.Data.Tables.Clinic)">
+            <summary>
+            Add a clinic.
+            </summary>
+            <param name="entity">Entity of the clinic.</param>
+            <returns>The Id of the new entity.</returns>
+        </member>
+        <member name="M:Hospital.Repository.ClinicRepository.Remove(System.Int32)">
+            <summary>
+            Remove a clinic.
+            </summary>
+            <param name="id">Id of the entity.</param>
+            <returns>True if the entity got removed.</returns>
+        </member>
+        <member name="T:Hospital.Repository.DoctorRepository">
+            <summary>
+            Doctor's Repository.
+            </summary>
+        </member>
+        <member name="M:Hospital.Repository.DoctorRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hospital.Repository.DoctorRepository"/> class.
+            </summary>
+            <param name="ctx">DBcontext.</param>
+        </member>
+        <member name="M:Hospital.Repository.DoctorRepository.ChangeDegree(System.Int32,System.String)">
+            <summary>
+            Change the degree of a doctor.
+            </summary>
+            <param name="id">Id of the doctor.</param>
+            <param name="newdegree">The new degree.</param>
+        </member>
+        <member name="M:Hospital.Repository.DoctorRepository.GetOne(System.Int32)">
+            <summary>
+            Get one doctor by id.
+            </summary>
+            <param name="id">The id of the doctor.</param>
+            <returns>A doctor by id.</returns>
+        </member>
+        <member name="M:Hospital.Repository.DoctorRepository.Add(Hospital.Data.Tables.Doctor)">
+            <summary>
+            Add a doctor.
+            </summary>
+            <param name="entity">Entity of the doctor.</param>
+            <returns>The Id of the new entity.</returns>
+        </member>
+        <member name="M:Hospital.Repository.DoctorRepository.Remove(System.Int32)">
+            <summary>
+            Remove a Doctor.
+            </summary>
+            <param name="id">Id of the entity.</param>
+            <returns>True if the entity got removed.</returns>
+        </member>
+        <member name="T:Hospital.Repository.Repositories.IClinicRepository">
+            <summary>
+            IClinicRepository interface for ClinicRepository.
+            </summary>
+        </member>
+        <member name="M:Hospital.Repository.Repositories.IClinicRepository.ChangeAdress(System.Int32,System.String)">
+            <summary>
+            Change the adress of a clinic.
+            </summary>
+            <param name="id">Id of the clinic.</param>
+            <param name="newadress">The new address.</param>
+        </member>
+        <member name="T:Hospital.Repository.Repositories.IDoctorRepository">
+            <summary>
+            IDoctorRepository interface for DoctorRepository.
+            </summary>
+        </member>
+        <member name="M:Hospital.Repository.Repositories.IDoctorRepository.ChangeDegree(System.Int32,System.String)">
+            <summary>
+            Change the degree of a doctor.
+            </summary>
+            <param name="id">Id of the doctor.</param>
+            <param name="newdegree">The new degree.</param>
+        </member>
+        <member name="T:Hospital.Repository.Repositories.IPatientRepository">
+            <summary>
+            IPatientRepository interface for PatientRepository.
+            </summary>
+        </member>
+        <member name="M:Hospital.Repository.Repositories.IPatientRepository.ChangeDisease(System.Int32,System.String)">
+            <summary>
+            Change the disease of a patient.
+            </summary>
+            <param name="id">Id of the patient.</param>
+            <param name="newdisease">The new disease.</param>
+        </member>
+        <member name="T:Hospital.Repository.Repositories.ITreatmentRepository">
+            <summary>
+            ITreatmentRepository interface for TreatmentRepository.
+            </summary>
+        </member>
+        <member name="M:Hospital.Repository.Repositories.ITreatmentRepository.ChangeDescription(System.Int32,System.String)">
+            <summary>
+            Change the description of a treatment.
+            </summary>
+            <param name="id">Id of the treatment.</param>
+            <param name="newdesc">The new description.</param>
+        </member>
+        <member name="T:Hospital.Repository.PatientRepository">
+            <summary>
+            Patient's Repository.
+            </summary>
+        </member>
+        <member name="M:Hospital.Repository.PatientRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hospital.Repository.PatientRepository"/> class.
+            </summary>
+            <param name="ctx">DBcontext.</param>
+        </member>
+        <member name="M:Hospital.Repository.PatientRepository.ChangeDisease(System.Int32,System.String)">
+            <summary>
+            Change the disease of a patient.
+            </summary>
+            <param name="id">Id of the patient.</param>
+            <param name="newdisease">The new disease.</param>
+        </member>
+        <member name="M:Hospital.Repository.PatientRepository.GetOne(System.Int32)">
+            <summary>
+            Get one patient by id.
+            </summary>
+            <param name="id">The id of the patient.</param>
+            <returns>A patient by id.</returns>
+        </member>
+        <member name="M:Hospital.Repository.PatientRepository.Add(Hospital.Data.Tables.Patient)">
+            <summary>
+            Add a patient.
+            </summary>
+            <param name="entity">Entity of the patient.</param>
+            <returns>The Id of the new entity.</returns>
+        </member>
+        <member name="M:Hospital.Repository.PatientRepository.Remove(System.Int32)">
+            <summary>
+            Remove a patient.
+            </summary>
+            <param name="id">Id of the entity.</param>
+            <returns>True if the entity got removed.</returns>
+        </member>
+        <member name="T:Hospital.Repository.TreatmentRepository">
+            <summary>
+            Treatment's Repository.
+            </summary>
+        </member>
+        <member name="M:Hospital.Repository.TreatmentRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hospital.Repository.TreatmentRepository"/> class.
+            </summary>
+            <param name="ctx">DBcontext.</param>
+        </member>
+        <member name="M:Hospital.Repository.TreatmentRepository.ChangeDescription(System.Int32,System.String)">
+            <summary>
+            Change the description of a treatment.
+            </summary>
+            <param name="id">Id of the treatment.</param>
+            <param name="newdesc">The new description.</param>
+        </member>
+        <member name="M:Hospital.Repository.TreatmentRepository.GetOne(System.Int32)">
+            <summary>
+            Get one treatment by id.
+            </summary>
+            <param name="id">The id of the treatment.</param>
+            <returns>A treatment by id.</returns>
+        </member>
+        <member name="M:Hospital.Repository.TreatmentRepository.Add(Hospital.Data.Tables.Treatment)">
+            <summary>
+            Add a treatment.
+            </summary>
+            <param name="entity">Entity of the treatment.</param>
+            <returns>The Id of the new entity.</returns>
+        </member>
+        <member name="M:Hospital.Repository.TreatmentRepository.Remove(System.Int32)">
+            <summary>
+            Remove a treatment.
+            </summary>
+            <param name="id">Id of the entity.</param>
+            <returns>True if the entity got removed.</returns>
+        </member>
+        <member name="T:Hospital.Repository.RepositoryBase`1">
+            <summary>
+            Abstract class for the specific repositories.
+            </summary>
+            <typeparam name="T">Generic type parameter.</typeparam>
+        </member>
+        <member name="F:Hospital.Repository.RepositoryBase`1.ctx">
+            <summary>
+            Creating DBContext.
+            </summary>
+        </member>
+        <member name="M:Hospital.Repository.RepositoryBase`1.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Hospital.Repository.RepositoryBase`1"/> class.
+            </summary>
+            <param name="ctx">The DBContext.</param>
+        </member>
+        <member name="P:Hospital.Repository.RepositoryBase`1.GetCtx">
+            <summary>
+            Gets DBContext.
+            </summary>
+            <returns>DBContext.</returns>
+        </member>
+        <member name="M:Hospital.Repository.RepositoryBase`1.GetAll">
+            <summary>
+            Get all entities from a table.
+            </summary>
+            <returns>All entities from a table.</returns>
+        </member>
+        <member name="M:Hospital.Repository.RepositoryBase`1.GetOne(System.Int32)">
+            <summary>
+            Get one entity by id.
+            </summary>
+            <param name="id">The id of the entity.</param>
+            <returns>One entity.</returns>
+        </member>
+        <member name="M:Hospital.Repository.RepositoryBase`1.Add(`0)">
+            <summary>
+            Add an entity.
+            </summary>
+            <param name="entity">Entity of something.</param>
+            <returns>The Id of the new entity.</returns>
+        </member>
+        <member name="M:Hospital.Repository.RepositoryBase`1.Remove(System.Int32)">
+            <summary>
+            Remove an entity.
+            </summary>
+            <param name="id">Id of the entity.</param>
+            <returns>True if the entity got removed.</returns>
+        </member>
+    </members>
+</doc>

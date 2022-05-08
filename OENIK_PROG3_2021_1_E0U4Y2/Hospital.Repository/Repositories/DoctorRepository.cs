@@ -22,7 +22,7 @@ namespace Hospital.Repository
         /// Initializes a new instance of the <see cref="DoctorRepository"/> class.
         /// </summary>
         /// <param name="ctx">DBcontext.</param>
-        public DoctorRepository(DbContext ctx)
+        public DoctorRepository(HospitalDbContext ctx)
             : base(ctx)
         {
         }

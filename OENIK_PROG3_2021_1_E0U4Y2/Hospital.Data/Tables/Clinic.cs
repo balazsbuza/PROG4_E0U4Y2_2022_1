@@ -9,6 +9,7 @@ namespace Hospital.Data.Tables
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Text;
+    using System.Text.Json.Serialization;
 
     /// <summary>
     /// Clinic table.
@@ -66,6 +67,7 @@ namespace Hospital.Data.Tables
         /// Gets the Doctors of the clinic.
         /// </summary>
         [NotMapped]
+        [JsonIgnore]
         public virtual ICollection<Doctor> Doctors { get; }
 
         /// <summary>

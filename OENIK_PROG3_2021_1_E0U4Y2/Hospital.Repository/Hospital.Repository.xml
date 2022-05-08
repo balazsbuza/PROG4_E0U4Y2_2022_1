@@ -42,7 +42,7 @@
             Clinic's Repository.
             </summary>
         </member>
-        <member name="M:Hospital.Repository.ClinicRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+        <member name="M:Hospital.Repository.ClinicRepository.#ctor(Hospital.Data.Tables.HospitalDbContext)">
             <summary>
             Initializes a new instance of the <see cref="T:Hospital.Repository.ClinicRepository"/> class.
             </summary>
@@ -81,7 +81,7 @@
             Doctor's Repository.
             </summary>
         </member>
-        <member name="M:Hospital.Repository.DoctorRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+        <member name="M:Hospital.Repository.DoctorRepository.#ctor(Hospital.Data.Tables.HospitalDbContext)">
             <summary>
             Initializes a new instance of the <see cref="T:Hospital.Repository.DoctorRepository"/> class.
             </summary>
@@ -168,7 +168,7 @@
             Patient's Repository.
             </summary>
         </member>
-        <member name="M:Hospital.Repository.PatientRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+        <member name="M:Hospital.Repository.PatientRepository.#ctor(Hospital.Data.Tables.HospitalDbContext)">
             <summary>
             Initializes a new instance of the <see cref="T:Hospital.Repository.PatientRepository"/> class.
             </summary>
@@ -207,7 +207,7 @@
             Treatment's Repository.
             </summary>
         </member>
-        <member name="M:Hospital.Repository.TreatmentRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+        <member name="M:Hospital.Repository.TreatmentRepository.#ctor(Hospital.Data.Tables.HospitalDbContext)">
             <summary>
             Initializes a new instance of the <see cref="T:Hospital.Repository.TreatmentRepository"/> class.
             </summary>

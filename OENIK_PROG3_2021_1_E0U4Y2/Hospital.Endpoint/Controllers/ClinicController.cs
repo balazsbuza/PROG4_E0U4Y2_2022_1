@@ -1,6 +1,8 @@
 ﻿using Hospital.Data.Tables;
+using Hospital.Endpoint.Services;
 using Hospital.Logic;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +17,12 @@ namespace Hospital.Endpoint.Controllers
     public class ClinicController : ControllerBase
     {
         IClinicDoctorLogic logic;
+        IHubContext<SignalRHub> hub;
 
         public ClinicController(IClinicDoctorLogic logic)
         {
             this.logic = logic;
+            this.hub = hub;
         }
 
         // GET: api/<ClinicController>
@@ -40,7 +44,7 @@ namespace Hospital.Endpoint.Controllers
         public void Post([FromBody] Clinic value)
         {
             this.logic.AddOneClinic(value);
-            //this.hub.Clients.All.SendAsync("ActorCreated", value);
+            this.hub.Clients.All.SendAsync("ClinicCreated", value);
         }
 
         // PUT api/<ClinicController>/5
@@ -48,13 +52,16 @@ namespace Hospital.Endpoint.Controllers
         public void Put(int id, [FromBody] string value)
         {
             this.logic.ChangeOneClinicAddress(id, value);
+            this.hub.Clients.All.SendAsync("ClinicUpdated", value);
         }
 
         // DELETE api/<ClinicController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var clinicToDelete = this.logic.GetOneClinic(id);
             this.logic.RemoveOneClinic(id);
+            this.hub.Clients.All.SendAsync("ClinicDeleted", clinicToDelete);
         }
     }
 }

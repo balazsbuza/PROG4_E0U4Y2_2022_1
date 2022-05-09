@@ -22,10 +22,10 @@
         <member name="M:Hospital.Logic.ClinicDoctorLogic.AddOneDoctor(Hospital.Data.Tables.Doctor)">
             <inheritdoc/>
         </member>
-        <member name="M:Hospital.Logic.ClinicDoctorLogic.ChangeOneClinicAddress(System.Int32,System.String)">
+        <member name="M:Hospital.Logic.ClinicDoctorLogic.ChangeOneClinicAddress(Hospital.Data.Tables.Clinic)">
             <inheritdoc/>
         </member>
-        <member name="M:Hospital.Logic.ClinicDoctorLogic.ChangeOneDoctorDegree(System.Int32,System.String)">
+        <member name="M:Hospital.Logic.ClinicDoctorLogic.ChangeOneDoctorDegree(Hospital.Data.Tables.Doctor)">
             <inheritdoc/>
         </member>
         <member name="M:Hospital.Logic.ClinicDoctorLogic.GetAllClinics">
@@ -122,14 +122,14 @@
             <param name="entity">Entity of the doctor.</param>
             <returns>The Id of the new entity.</returns>
         </member>
-        <member name="M:Hospital.Logic.IClinicDoctorLogic.ChangeOneClinicAddress(System.Int32,System.String)">
+        <member name="M:Hospital.Logic.IClinicDoctorLogic.ChangeOneClinicAddress(Hospital.Data.Tables.Clinic)">
             <summary>
             Change one clinic's address.
             </summary>
             <param name="id">The id of the entity.</param>
             <param name="address">The new address.</param>
         </member>
-        <member name="M:Hospital.Logic.IClinicDoctorLogic.ChangeOneDoctorDegree(System.Int32,System.String)">
+        <member name="M:Hospital.Logic.IClinicDoctorLogic.ChangeOneDoctorDegree(Hospital.Data.Tables.Doctor)">
             <summary>
             Change one doctor's degree.
             </summary>
@@ -290,14 +290,14 @@
             <param name="entity">Entity of the treatment.</param>
             <returns>The Id of the new entity.</returns>
         </member>
-        <member name="M:Hospital.Logic.IPatientTreatmentLogic.ChangeOnePatientDisease(System.Int32,System.String)">
+        <member name="M:Hospital.Logic.IPatientTreatmentLogic.ChangeOnePatientDisease(Hospital.Data.Tables.Patient)">
             <summary>
             Change one patient's disease.
             </summary>
             <param name="id">The id of the entity.</param>
             <param name="disease">The new disease.</param>
         </member>
-        <member name="M:Hospital.Logic.IPatientTreatmentLogic.ChangeOneTreatmentDescription(System.Int32,System.String)">
+        <member name="M:Hospital.Logic.IPatientTreatmentLogic.ChangeOneTreatmentDescription(Hospital.Data.Tables.Treatment)">
             <summary>
             Change one treatment's description.
             </summary>
@@ -376,10 +376,10 @@
         <member name="M:Hospital.Logic.PatientTreatmentLogic.AddOneTreatment(Hospital.Data.Tables.Treatment)">
             <inheritdoc/>
         </member>
-        <member name="M:Hospital.Logic.PatientTreatmentLogic.ChangeOnePatientDisease(System.Int32,System.String)">
+        <member name="M:Hospital.Logic.PatientTreatmentLogic.ChangeOnePatientDisease(Hospital.Data.Tables.Patient)">
             <inheritdoc/>
         </member>
-        <member name="M:Hospital.Logic.PatientTreatmentLogic.ChangeOneTreatmentDescription(System.Int32,System.String)">
+        <member name="M:Hospital.Logic.PatientTreatmentLogic.ChangeOneTreatmentDescription(Hospital.Data.Tables.Treatment)">
             <inheritdoc/>
         </member>
         <member name="M:Hospital.Logic.PatientTreatmentLogic.GetAllPatients">

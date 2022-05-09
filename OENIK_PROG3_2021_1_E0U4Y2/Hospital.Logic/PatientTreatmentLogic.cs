@@ -44,15 +44,15 @@ namespace Hospital.Logic
         }
 
         /// <inheritdoc/>
-        public void ChangeOnePatientDisease(int id, string disease)
+        public void ChangeOnePatientDisease(Patient entity)
         {
-            this.patientRepo.ChangeDisease(id, disease);
+            this.patientRepo.ChangeDisease(entity.PatientId, entity.Disease);
         }
 
         /// <inheritdoc/>
-        public void ChangeOneTreatmentDescription(int id, string desc)
+        public void ChangeOneTreatmentDescription(Treatment entity)
         {
-            this.treatmentRepo.ChangeDescription(id, desc);
+            this.treatmentRepo.ChangeDescription(entity.TreatmentId, entity.Description);
         }
 
         /// <inheritdoc/>

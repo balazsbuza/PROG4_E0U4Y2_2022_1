@@ -61,14 +61,14 @@ namespace Hospital.Logic
         /// </summary>
         /// <param name="id">The id of the entity.</param>
         /// <param name="disease">The new disease.</param>
-        void ChangeOnePatientDisease(int id, string disease);
+        void ChangeOnePatientDisease(Patient entity);
 
         /// <summary>
         /// Change one treatment's description.
         /// </summary>
         /// <param name="id">The id of the entity.</param>
         /// <param name="desc">The new description.</param>
-        void ChangeOneTreatmentDescription(int id, string desc);
+        void ChangeOneTreatmentDescription(Treatment entity);
 
         /// <summary>
         /// Remove a Patient.

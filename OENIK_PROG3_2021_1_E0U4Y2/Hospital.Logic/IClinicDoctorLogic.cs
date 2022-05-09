@@ -61,14 +61,14 @@ namespace Hospital.Logic
         /// </summary>
         /// <param name="id">The id of the entity.</param>
         /// <param name="address">The new address.</param>
-        void ChangeOneClinicAddress(int id, string address);
+        void ChangeOneClinicAddress(Clinic entity);
 
         /// <summary>
         /// Change one doctor's degree.
         /// </summary>
         /// <param name="id">The id of the entity.</param>
         /// <param name="degree">The new degree.</param>
-        void ChangeOneDoctorDegree(int id, string degree);
+        void ChangeOneDoctorDegree(Doctor entity);
 
         /// <summary>
         /// Remove a Clinic.

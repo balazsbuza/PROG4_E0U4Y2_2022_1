@@ -106,7 +106,7 @@ namespace Hospital.Logic.Tests
             mockedDRepo.Setup(repo => repo.ChangeDegree(1, "TestDegree"));
 
             ClinicDoctorLogic cdlogic = new ClinicDoctorLogic(mockedCRepo.Object, mockedDRepo.Object);
-            cdlogic.ChangeOneDoctorDegree(1, "TestDegree");
+            //cdlogic.ChangeOneDoctorDegree(1, "TestDegree");
 
             mockedDRepo.Verify(repo => repo.ChangeDegree(1, "TestDegree"), Times.Exactly(1));
         }

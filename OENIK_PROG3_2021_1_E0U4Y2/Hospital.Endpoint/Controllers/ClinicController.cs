@@ -19,7 +19,7 @@ namespace Hospital.Endpoint.Controllers
         IClinicDoctorLogic logic;
         IHubContext<SignalRHub> hub;
 
-        public ClinicController(IClinicDoctorLogic logic)
+        public ClinicController(IClinicDoctorLogic logic, IHubContext<SignalRHub> hub)
         {
             this.logic = logic;
             this.hub = hub;
@@ -48,10 +48,10 @@ namespace Hospital.Endpoint.Controllers
         }
 
         // PUT api/<ClinicController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public void Put([FromBody] Clinic value)
         {
-            this.logic.ChangeOneClinicAddress(id, value);
+            this.logic.ChangeOneClinicAddress(value);
             this.hub.Clients.All.SendAsync("ClinicUpdated", value);
         }
 

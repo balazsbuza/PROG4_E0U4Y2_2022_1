@@ -223,7 +223,7 @@ namespace Hospital.Program
                     int cid = IdChecker(GetIds(1, cdlogic, ptlogic));
                     Console.WriteLine(new string("Address of the clinic"));
                     string address = Console.ReadLine();
-                    cdlogic.ChangeOneClinicAddress(cid, address);
+                    //cdlogic.ChangeOneClinicAddress(cid, address);
                     Console.WriteLine(new string("Done"));
 
                     break;
@@ -238,7 +238,7 @@ namespace Hospital.Program
                     int did = IdChecker(GetIds(2, cdlogic, ptlogic));
                     Console.WriteLine(new string("The new degree"));
                     string degree = Console.ReadLine();
-                    cdlogic.ChangeOneDoctorDegree(did, degree);
+                    //cdlogic.ChangeOneDoctorDegree(did, degree);
                     Console.WriteLine(new string("Done"));
 
                     break;
@@ -253,7 +253,7 @@ namespace Hospital.Program
                     int pid = IdChecker(GetIds(3, cdlogic, ptlogic));
                     Console.WriteLine(new string("The new disease"));
                     string disease = Console.ReadLine();
-                    ptlogic.ChangeOnePatientDisease(pid, disease);
+                    //ptlogic.ChangeOnePatientDisease(pid, disease);
                     Console.WriteLine(new string("Done"));
 
                     break;
@@ -268,7 +268,7 @@ namespace Hospital.Program
                     int tid = IdChecker(GetIds(4, cdlogic, ptlogic));
                     Console.WriteLine(new string("The new description"));
                     string desc = Console.ReadLine();
-                    ptlogic.ChangeOneTreatmentDescription(tid, desc);
+                    //ptlogic.ChangeOneTreatmentDescription(tid, desc);
                     Console.WriteLine(new string("Done"));
 
                     break;

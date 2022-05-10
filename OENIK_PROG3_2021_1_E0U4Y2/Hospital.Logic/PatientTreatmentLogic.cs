@@ -82,14 +82,33 @@ namespace Hospital.Logic
         /// <inheritdoc/>
         public IList<PatientLastTreatment> GetPatientLastTreatment()
         {
-            var q = from treatment in this.treatmentRepo.GetAll()
-                    join patient in this.patientRepo.GetAll() on treatment.PatientId equals patient.PatientId
+            var t = this.treatmentRepo.GetAll().ToList();
+            var p = this.patientRepo.GetAll().ToList();
+            var q = from treatment in t
+                    join patient in p on treatment.PatientId equals patient.PatientId
                     let item = new { PatientName = patient.Name, Treatmentdate = treatment.Treatmenttime }
                     group item by item.PatientName into grp
                     select new PatientLastTreatment()
                     {
                         PatientName = grp.Key,
                         TreatmentTime = grp.Max(x => x.Treatmentdate),
+                    };
+            return q.ToList();
+        }
+
+        public IList<PatientTreatmentLastYear> GetPatientTreatmentLastYear()
+        {
+            var t = this.treatmentRepo.GetAll().ToList();
+            var p = this.patientRepo.GetAll().ToList();
+            DateTime year = DateTime.Now.AddYears(-1);
+            var q = from treatment in t
+                    join patient in p on treatment.PatientId equals patient.PatientId
+                    let item = new { PatientName = patient.Name, Treatmentdate = treatment.Treatmenttime }
+                    group item by item.PatientName into grp
+                    select new PatientTreatmentLastYear()
+                    {
+                        PatientName = grp.Key,
+                        LastYear = grp.Where(x => x.Treatmentdate > year).Any(),
                     };
             return q.ToList();
         }

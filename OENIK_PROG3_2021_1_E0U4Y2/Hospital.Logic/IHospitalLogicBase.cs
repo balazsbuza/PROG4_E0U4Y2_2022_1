@@ -20,7 +20,7 @@ namespace Hospital.Logic
         /// NON-CRUD gets every clinic and their patients by gender.
         /// </summary>
         /// <returns>Every clinic and their patient count by gender.</returns>
-        IList<ClinicGender> GetClinicGender();
+        ICollection<ClinicGender> GetClinicGender();
     }
 
     /// <summary>

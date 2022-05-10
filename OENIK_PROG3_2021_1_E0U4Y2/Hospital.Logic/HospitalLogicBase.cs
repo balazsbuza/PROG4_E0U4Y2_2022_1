@@ -8,6 +8,7 @@ namespace Hospital.Logic
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using System.Threading;
     using System.Threading.Tasks;
     using Hospital.Data.Tables;
     using Hospital.Repository.Repositories;
@@ -35,11 +36,14 @@ namespace Hospital.Logic
         }
 
         /// <inheritdoc/>
-        public IList<ClinicGender> GetClinicGender()
+        public ICollection<ClinicGender> GetClinicGender()
         {
-            var q = from patient in this.patientRepo.GetAll()
-                    join doctor in this.doctorRepo.GetAll() on patient.DoctorId equals doctor.DoctorId
-                    join clinic in this.clinicRepo.GetAll() on doctor.ClinicId equals clinic.ClinicId
+            var p = this.patientRepo.GetAll().ToList();
+            var d = this.doctorRepo.GetAll().ToList();
+            var c = this.clinicRepo.GetAll().ToList();
+            var q = from patient in p
+                    join doctor in d on patient.DoctorId equals doctor.DoctorId
+                    join clinic in c on doctor.ClinicId equals clinic.ClinicId
                     let item = new { Clinic = clinic.Name, Gender = patient.Gender, }
                     group item by item.Clinic into grp
                     select new ClinicGender()
@@ -56,9 +60,9 @@ namespace Hospital.Logic
         /// Async method to GetClinicGender.
         /// </summary>
         /// <returns>Task to run the GetClinicGender method.</returns>
-        public Task<IList<ClinicGender>> GetClinicGenderAsync()
-        {
-            return Task.Run(() => this.GetClinicGender());
-        }
+        //public Task<IList<ClinicGender>> GetClinicGenderAsync()
+        //{
+        //    return Task.Run(() => this.GetClinicGender());
+        //}
     }
 }

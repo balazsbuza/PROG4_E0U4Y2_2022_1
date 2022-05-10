@@ -89,6 +89,8 @@ namespace Hospital.Logic
         /// </summary>
         /// <returns>Every doctor and their workaddress.</returns>
         IList<DoctorWorkaddress> GetDoctorWorkAddress();
+
+        IList<DoctorOfficeHours> GetDoctorOfficeHours();
     }
 
     /// <summary>
@@ -146,6 +148,56 @@ namespace Hospital.Logic
         public override int GetHashCode()
         {
             return HashCode.Combine(this.NumberOfDoctors, this.ClinicAddress);
+        }
+    }
+
+    public class DoctorOfficeHours
+    {
+        /// <summary>
+        /// Gets or sets the number of doctor's.
+        /// </summary>
+        public int NumberOfDoctors { get; set; }
+
+        /// <summary>
+        /// Gets or sets the clinic's address.
+        /// </summary>
+        public string OfficeHours { get; set; }
+
+        public override string ToString()
+        {
+            return $"DOCTOR = {this.NumberOfDoctors}, OFFICEHOURS = {this.OfficeHours}";
+        }
+        /// <summary>
+        /// Override Equals() for testing.
+        /// </summary>
+        /// <param name="obj">Id of the entity.</param>
+        /// <returns>True if the objects are equal.</returns>
+        public override bool Equals(object obj)
+        {
+            if (obj is null)
+            {
+                return false;
+            }
+
+            if (obj is DoctorOfficeHours)
+            {
+                DoctorOfficeHours other = obj as DoctorOfficeHours;
+                return this.OfficeHours == other.OfficeHours &&
+                    this.NumberOfDoctors == other.NumberOfDoctors;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Override GetHasCode() for testing.
+        /// </summary>
+        /// <returns>The hash.</returns>
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(this.NumberOfDoctors, this.OfficeHours);
         }
     }
 }

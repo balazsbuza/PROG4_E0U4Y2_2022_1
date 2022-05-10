@@ -71,12 +71,6 @@
         <member name="M:Hospital.Logic.HospitalLogicBase.GetClinicGender">
             <inheritdoc/>
         </member>
-        <member name="M:Hospital.Logic.HospitalLogicBase.GetClinicGenderAsync">
-            <summary>
-            Async method to GetClinicGender.
-            </summary>
-            <returns>Task to run the GetClinicGender method.</returns>
-        </member>
         <member name="T:Hospital.Logic.IClinicDoctorLogic">
             <summary>
             Clinic and doctor logic interface creation.
@@ -185,6 +179,29 @@
             <returns>True if the objects are equal.</returns>
         </member>
         <member name="M:Hospital.Logic.DoctorWorkaddress.GetHashCode">
+            <summary>
+            Override GetHasCode() for testing.
+            </summary>
+            <returns>The hash.</returns>
+        </member>
+        <member name="P:Hospital.Logic.DoctorOfficeHours.NumberOfDoctors">
+            <summary>
+            Gets or sets the number of doctor's.
+            </summary>
+        </member>
+        <member name="P:Hospital.Logic.DoctorOfficeHours.OfficeHours">
+            <summary>
+            Gets or sets the clinic's address.
+            </summary>
+        </member>
+        <member name="M:Hospital.Logic.DoctorOfficeHours.Equals(System.Object)">
+            <summary>
+            Override Equals() for testing.
+            </summary>
+            <param name="obj">Id of the entity.</param>
+            <returns>True if the objects are equal.</returns>
+        </member>
+        <member name="M:Hospital.Logic.DoctorOfficeHours.GetHashCode">
             <summary>
             Override GetHasCode() for testing.
             </summary>
@@ -353,6 +370,35 @@
             <returns>True if the objects are equal.</returns>
         </member>
         <member name="M:Hospital.Logic.PatientLastTreatment.GetHashCode">
+            <summary>
+            Override GetHasCode() for testing.
+            </summary>
+            <returns>The hash.</returns>
+        </member>
+        <member name="P:Hospital.Logic.PatientTreatmentLastYear.PatientName">
+            <summary>
+            Gets or sets the patient's name.
+            </summary>
+        </member>
+        <member name="P:Hospital.Logic.PatientTreatmentLastYear.LastYear">
+            <summary>
+            Gets or sets the last treatmenttime.
+            </summary>
+        </member>
+        <member name="M:Hospital.Logic.PatientTreatmentLastYear.ToString">
+            <summary>
+            Override ToString.
+            </summary>
+            <returns>The patient's name and the last treatmenttime.</returns>
+        </member>
+        <member name="M:Hospital.Logic.PatientTreatmentLastYear.Equals(System.Object)">
+            <summary>
+            Override Equals() for testing.
+            </summary>
+            <param name="obj">Id of the entity.</param>
+            <returns>True if the objects are equal.</returns>
+        </member>
+        <member name="M:Hospital.Logic.PatientTreatmentLastYear.GetHashCode">
             <summary>
             Override GetHasCode() for testing.
             </summary>

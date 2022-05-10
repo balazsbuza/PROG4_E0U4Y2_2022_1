@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Hospital.Data.Tables;
+using Hospital.Logic;
 
 namespace Hospital.WpfClient
 {
@@ -23,6 +24,43 @@ namespace Hospital.WpfClient
             set { SetProperty(ref errorMessage, value); }
         }
 
+        public static bool IsInDesignMode
+        {
+            get
+            {
+                var prop = DesignerProperties.IsInDesignModeProperty;
+                return (bool)DependencyPropertyDescriptor.FromProperty(prop, typeof(FrameworkElement)).Metadata.DefaultValue;
+            }
+        }
+
+        public ICollection<ClinicGender> ClinicGenders
+        {
+            get { return Rest.Get<ClinicGender>("/Stat/ClinicGender"); }
+        }
+
+        public IList<DoctorWorkaddress> DoctorWorkAddress
+        {
+            get { return Rest.Get<DoctorWorkaddress>("/Stat/DoctorWorkAddress"); }
+        }
+
+        public IList<PatientLastTreatment> PatientLastTreatment
+        {
+            get { return Rest.Get<PatientLastTreatment>("/Stat/PatientLastTreatment"); }
+        }
+
+        public IList<DoctorOfficeHours> DoctorOfficeHours
+        {
+            get { return Rest.Get<DoctorOfficeHours>("/Stat/DoctorOfficeHours"); }
+        }
+
+        public IList<PatientTreatmentLastYear> PatientTreatmentLastYear
+        {
+            get { return Rest.Get<PatientTreatmentLastYear>("/Stat/PatientTreatmentLastYear"); }
+        }
+
+        
+
+        RestService Rest;
 
         public RestCollection<Clinic> Clinics { get; set; }
 
@@ -38,9 +76,18 @@ namespace Hospital.WpfClient
                     selectedClinic = new Clinic()
                     {
                         Name = value.Name,
-                        ClinicId = value.ClinicId
+                        ClinicId = value.ClinicId,
+                        Address = value.Address
+                        //Officehours = value.Officehours,
+                        //Phone = value.Phone,
+                        //Company = value.Company
                     };
                     OnPropertyChanged();
+                    OnPropertyChanged("PatientLastTreatment");
+                    OnPropertyChanged("ClinicGenders");
+                    OnPropertyChanged("DoctorWorkAddress");
+                    OnPropertyChanged("DoctorOfficeHours");
+                    OnPropertyChanged("PatientTreatmentLastYear");
                     (DeleteClinicCommand as RelayCommand).NotifyCanExecuteChanged();
                 }
             }
@@ -53,12 +100,102 @@ namespace Hospital.WpfClient
 
         public ICommand UpdateClinicCommand { get; set; }
 
-        public static bool IsInDesignMode
+        public RestCollection<Patient> Patients { get; set; }
+
+        private Patient selectedPatient;
+
+        public Patient SelectedPatient
         {
-            get
+            get { return selectedPatient; }
+            set
             {
-                var prop = DesignerProperties.IsInDesignModeProperty;
-                return (bool)DependencyPropertyDescriptor.FromProperty(prop, typeof(FrameworkElement)).Metadata.DefaultValue;
+                if (value != null)
+                {
+                    selectedPatient = new Patient()
+                    {
+                        Name = value.Name,
+                        PatientId = value.PatientId,
+                        Disease = value.Disease,
+                        Gender = value.Gender,
+                        Dateofbirth = value.Dateofbirth,
+                        Nameofmother = value.Nameofmother,
+                        DoctorId = value.DoctorId
+                    };
+                    OnPropertyChanged();
+                    OnPropertyChanged("PatientLastTreatment");
+                    OnPropertyChanged("ClinicGenders");
+                    OnPropertyChanged("DoctorWorkAddress");
+                    OnPropertyChanged("DoctorOfficeHours");
+                    OnPropertyChanged("PatientTreatmentLastYear");
+                    (CreateTreatmentCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (DeletePatientCommand as RelayCommand).NotifyCanExecuteChanged();
+                }
+            }
+        }
+
+
+        public ICommand CreatePatientCommand { get; set; }
+
+        public ICommand DeletePatientCommand { get; set; }
+
+        public ICommand UpdatePatientCommand { get; set; }
+
+        public RestCollection<Treatment> Treatments { get; set; }
+
+        private Treatment selectedTreatment;
+
+        public Treatment SelectedTreatment
+        {
+            get { return selectedTreatment; }
+            set
+            {
+                if (value != null)
+                {
+                    selectedTreatment = new Treatment()
+                    {
+                        DoctorId = value.DoctorId,
+                        PatientId = value.PatientId,
+                        TreatmentId = value.TreatmentId,
+                        Description = value.Description
+                    };
+                    OnPropertyChanged();
+                    OnPropertyChanged("PatientLastTreatment");
+                    OnPropertyChanged("ClinicGenders");
+                    OnPropertyChanged("DoctorWorkAddress");
+                    OnPropertyChanged("DoctorOfficeHours");
+                    OnPropertyChanged("PatientTreatmentLastYear");
+                    (DeleteTreatmentCommand as RelayCommand).NotifyCanExecuteChanged();
+                }
+            }
+        }
+
+
+        public ICommand CreateTreatmentCommand { get; set; }
+
+        public ICommand DeleteTreatmentCommand { get; set; }
+
+        public ICommand UpdateTreatmentCommand { get; set; }
+
+        public RestCollection<Doctor> Doctors { get; set; }
+
+        private Doctor selectedDoctor;
+
+        public Doctor SelectedDoctor
+        {
+            get { return selectedDoctor; }
+            set
+            {
+                if (value != null)
+                {
+                    selectedDoctor = new Doctor()
+                    {
+                        Name = value.Name,
+                        DoctorId = value.DoctorId,
+                    };
+                    OnPropertyChanged();
+                    (CreatePatientCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (CreateTreatmentCommand as RelayCommand).NotifyCanExecuteChanged();
+                }
             }
         }
 
@@ -67,12 +204,22 @@ namespace Hospital.WpfClient
         {
             if (!IsInDesignMode)
             {
+                Rest = new RestService("http://localhost:43747/");
+
+                Doctors = new RestCollection<Doctor>("http://localhost:43747/", "Doctor", "hub");
+
                 Clinics = new RestCollection<Clinic>("http://localhost:43747/", "Clinic", "hub");
+
+                Patients = new RestCollection<Patient>("http://localhost:43747/", "Patient", "hub");
+
+                Treatments = new RestCollection<Treatment>("http://localhost:43747/", "Treatment", "hub");
+
                 CreateClinicCommand = new RelayCommand(() =>
                 {
                     Clinics.Add(new Clinic()
                     {
-                        Name = SelectedClinic.Name
+                        Name = SelectedClinic.Name,
+                        Address = SelectedClinic.Address
                     });
                 });
 
@@ -97,7 +244,81 @@ namespace Hospital.WpfClient
                 {
                     return SelectedClinic != null;
                 });
-                SelectedClinic = new Clinic();
+                SelectedClinic = new Clinic();              
+
+                CreateTreatmentCommand = new RelayCommand(() =>
+                {
+                    Treatments.Add(new Treatment()
+                    {
+                        Description = SelectedTreatment.Description,
+                        PatientId = SelectedPatient.PatientId,
+                        DoctorId = SelectedDoctor.DoctorId,
+                        Treatmenttime = DateTime.Now
+                    });
+                },
+                () => SelectedPatient != null && SelectedDoctor != null
+                );
+
+                UpdateTreatmentCommand = new RelayCommand(() =>
+                {
+                    try
+                    {
+                        Treatments.Update(SelectedTreatment);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        ErrorMessage = ex.Message;
+                    }
+
+                });
+
+                DeleteTreatmentCommand = new RelayCommand(() =>
+                {
+                    Treatments.Delete(SelectedTreatment.TreatmentId);
+                },
+                () =>
+                {
+                    return SelectedTreatment != null;
+                });
+                SelectedTreatment = new Treatment();              
+
+                CreatePatientCommand = new RelayCommand(() =>
+                {
+                    Patients.Add(new Patient()
+                    {
+                        DoctorId = SelectedDoctor.DoctorId,
+                        Name = SelectedPatient.Name,
+                        Disease = SelectedPatient.Disease,
+                        Gender = "M",
+                        Dateofbirth = SelectedPatient.Dateofbirth,
+                        Nameofmother = SelectedPatient.Nameofmother
+                    });
+                },
+                () => SelectedDoctor != null
+                );
+
+                UpdatePatientCommand = new RelayCommand(() =>
+                {
+                    try
+                    {
+                        Patients.Update(SelectedPatient);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        ErrorMessage = ex.Message;
+                    }
+
+                });
+
+                DeletePatientCommand = new RelayCommand(() =>
+                {
+                    Patients.Delete(SelectedPatient.PatientId);
+                },
+                () =>
+                {
+                    return SelectedPatient != null;
+                });
+                SelectedPatient = new Patient();
             }
             
         }

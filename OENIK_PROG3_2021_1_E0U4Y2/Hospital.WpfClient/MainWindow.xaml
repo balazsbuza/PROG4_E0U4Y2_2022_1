@@ -5,29 +5,158 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hospital.WpfClient"
         mc:Ignorable="d"
-        Title="Hospital Editor" Height="450" Width="800">
+        Title="Hospital Editor" Height="800" Width="1200">
     <Window.DataContext>
         <local:MainWindowViewModel />
     </Window.DataContext>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="292*"/>
+            <RowDefinition Height="165*"/>
+            <RowDefinition Height="128*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+
         </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding Clinics}" SelectedItem="{Binding SelectedClinic}">
+        <Label Grid.Column="0" Content="Doctors" Background="LightBlue" Padding="5" />
+        <ListBox Grid.Column="0" ItemsSource="{Binding Doctors}" SelectedItem="{Binding SelectedDoctor}" Margin="0,28,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Name}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <StackPanel Grid.Column="1">
-            <Label Content="Name" Background="LightBlue" Padding="10" />
-            <TextBox Text="{Binding SelectedClinic.Name}" Padding="10" Margin="0,0,0,30" />
-            <Button Content="Create Clinic" Command="{Binding CreateClinicCommand}" Margin="10" Padding="10" />
-            <Button Content="Delete Clinic" Command="{Binding DeleteClinicCommand}" Margin="10" Padding="10" />
-            <Button Content="Update Clinic" Command="{Binding UpdateClinicCommand}" Margin="10" Padding="10" />
+        <ListBox Grid.Column="1" ItemsSource="{Binding Patients}" SelectedItem="{Binding SelectedPatient}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Name}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="2">
+            <Label Content="Name" Background="LightBlue" Padding="5" />
+            <TextBox Text="{Binding SelectedPatient.Name}" Padding="5" />
+            <Label Content="Disease" Background="LightBlue" Padding="5" />
+            <TextBox Text="{Binding SelectedPatient.Disease}" Padding="5" />
+            <Label Content="Doctor" Background="LightBlue" Padding="5" />
+            <Label Content="{Binding SelectedDoctor.Name}" Padding="5" />
+            <Button Content="Create Patient (need doctor)" Command="{Binding CreatePatientCommand}" Margin="10" />
+            <Button Content="Delete Patient" Command="{Binding DeletePatientCommand}" Margin="10" />
+            <Button Content="Update Patient" Command="{Binding UpdatePatientCommand}" Margin="10" />
             <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
         </StackPanel>
+        <ListBox Grid.Column="3" ItemsSource="{Binding Treatments}" SelectedItem="{Binding SelectedTreatment}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding TreatmentId}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="4">
+            <Label Content="Descripiton" Background="LightBlue" Padding="5" />
+            <TextBox Text="{Binding SelectedTreatment.Description}" Padding="5" />
+            <Label Content="Patient" Background="LightBlue" Padding="5" />
+            <Label Content="{Binding SelectedPatient.Name}" Padding="5" />
+            <Label Content="Doctor" Background="LightBlue" Padding="5" />
+            <Label Content="{Binding SelectedDoctor.Name}" Padding="5" />
+            <Button Content="Create Treatment (need doctor+patient)" Command="{Binding CreateTreatmentCommand}" Margin="10" />
+            <Button Content="Delete Treatment" Command="{Binding DeleteTreatmentCommand}" Margin="10" />
+            <Button Content="Update Treatment" Command="{Binding UpdateTreatmentCommand}" Margin="10" />
+            <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
+        </StackPanel>
+        <ListBox Grid.Column="0" Grid.Row="1" ItemsSource="{Binding Clinics}" SelectedItem="{Binding SelectedClinic}" Grid.RowSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Name}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
+            <Label Content="Name" Background="LightBlue" Padding="5" />
+            <TextBox Text="{Binding SelectedClinic.Name}" Padding="5" />
+            <Label Content="Address" Background="LightBlue" Padding="5" />
+            <TextBox Text="{Binding SelectedClinic.Address}" Padding="5" />
+            <Button Content="Create Clinic" Command="{Binding CreateClinicCommand}" Margin="10" />
+            <Button Content="Delete Clinic" Command="{Binding DeleteClinicCommand}" Margin="10" />
+            <Button Content="Update Clinic" Command="{Binding UpdateClinicCommand}" Margin="10" />
+            <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
+        </StackPanel>
+        <StackPanel Grid.Column="2"  Grid.Row="1">
+            <Label Content="Clinic Gender (add Patient Clinicfit as M)" Background="LightBlue" Padding="10" />
+            <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
+        </StackPanel>
+        <ListBox Grid.Column="2" Grid.Row="1"  Margin="0,36,0,0" ItemsSource="{Binding ClinicGenders}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Label Content="{Binding ClinicName}" />
+                        <TextBlock Text="{Binding NumberofM, StringFormat='Male {0}'}" />
+                        <TextBlock Text="{Binding NumberofF, StringFormat='Female {0}'}" />
+                        <TextBlock Text="{Binding NumberofO, StringFormat='Other {0}'}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="3"  Grid.Row="1">
+            <Label Content="PatientLastTreatment" Background="LightBlue" Padding="10" />
+            <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
+        </StackPanel>
+        <ListBox Grid.Column="3" Grid.Row="1"  Margin="0,36,0,0" ItemsSource="{Binding PatientLastTreatment}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Label Content="{Binding PatientName}" />
+                        <Label Content="{Binding TreatmentTime}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="4" Grid.Row="1">
+            <Label Content="DoctorWorkAddress" Background="LightBlue" Padding="10" />
+            <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
+        </StackPanel>
+        <ListBox Grid.Column="4" Grid.Row="1"  Margin="0,36,0,0" ItemsSource="{Binding DoctorWorkAddress}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Label Content="{Binding ClinicAddress}" />
+                        <TextBlock Text="{Binding NumberOfDoctors, StringFormat='NumberOfDoctors {0}'}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="2" Grid.Row="2">
+            <Label Content="OfficeWorkHours" Background="LightBlue" Padding="10" />
+            <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
+        </StackPanel>
+        <ListBox Grid.Column="2" Grid.Row="2"  Margin="0,36,0,0" ItemsSource="{Binding DoctorOfficeHours}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Label Content="{Binding OfficeHours}" />
+                        <TextBlock Text="{Binding NumberOfDoctors, StringFormat='NumberOfDoctors {0}'}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="3" Grid.Row="2">
+            <Label Content="PatientTreatmentLastYear" Background="LightBlue" Padding="10" />
+            <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
+        </StackPanel>
+        <ListBox Grid.Column="3" Grid.Row="2"  Margin="0,36,0,0" ItemsSource="{Binding PatientTreatmentLastYear}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Label Content="{Binding PatientName}" />
+                        <Label Content="{Binding LastYear}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

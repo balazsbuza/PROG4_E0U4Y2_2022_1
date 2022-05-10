@@ -89,6 +89,8 @@ namespace Hospital.Logic
         /// </summary>
         /// <returns>Every patient and their last treatmenttime.</returns>
         IList<PatientLastTreatment> GetPatientLastTreatment();
+
+        IList<PatientTreatmentLastYear> GetPatientTreatmentLastYear();
     }
 
     /// <summary>
@@ -146,6 +148,61 @@ namespace Hospital.Logic
         public override int GetHashCode()
         {
             return HashCode.Combine(this.PatientName, this.TreatmentTime);
+        }
+    }
+
+    public class PatientTreatmentLastYear
+    {
+        /// <summary>
+        /// Gets or sets the patient's name.
+        /// </summary>
+        public string PatientName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the last treatmenttime.
+        /// </summary>
+        public bool LastYear { get; set; }
+
+        /// <summary>
+        /// Override ToString.
+        /// </summary>
+        /// <returns>The patient's name and the last treatmenttime.</returns>
+        public override string ToString()
+        {
+            return $"PATIENT = {this.PatientName}, COUNT = {this.LastYear}";
+        }
+
+        /// <summary>
+        /// Override Equals() for testing.
+        /// </summary>
+        /// <param name="obj">Id of the entity.</param>
+        /// <returns>True if the objects are equal.</returns>
+        public override bool Equals(object obj)
+        {
+            if (obj is null)
+            {
+                return false;
+            }
+
+            if (obj is PatientTreatmentLastYear)
+            {
+                PatientTreatmentLastYear other = obj as PatientTreatmentLastYear;
+                return this.PatientName == other.PatientName &&
+                    this.LastYear == other.LastYear;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Override GetHasCode() for testing.
+        /// </summary>
+        /// <returns>The hash.</returns>
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(this.PatientName, this.LastYear);
         }
     }
 }

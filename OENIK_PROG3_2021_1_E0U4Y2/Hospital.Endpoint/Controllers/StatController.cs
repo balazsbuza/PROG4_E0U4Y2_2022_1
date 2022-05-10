@@ -40,9 +40,21 @@ namespace Hospital.Endpoint.Controllers
         }
 
         [HttpGet]
-        public IList<ClinicGender> ClinicGender()
+        public ICollection<ClinicGender> ClinicGender()
         {
             return this.hlogic.GetClinicGender();
+        }
+
+        [HttpGet]
+        public IList<DoctorOfficeHours> DoctorOfficeHours()
+        {
+            return this.cdlogic.GetDoctorOfficeHours();
+        }
+
+        [HttpGet]
+        public IList<PatientTreatmentLastYear> PatientTreatmentLastYear()
+        {
+            return this.ptlogic.GetPatientTreatmentLastYear();
         }
     }
 }

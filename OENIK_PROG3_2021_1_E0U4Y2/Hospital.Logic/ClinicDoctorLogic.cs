@@ -70,13 +70,31 @@ namespace Hospital.Logic
         /// <inheritdoc/>
         public IList<DoctorWorkaddress> GetDoctorWorkAddress()
         {
-            var q = from doctor in this.doctorRepo.GetAll()
-                    join clinic in this.clinicRepo.GetAll() on doctor.ClinicId equals clinic.ClinicId
+            var d = this.doctorRepo.GetAll().ToList();
+            var c = this.clinicRepo.GetAll().ToList();
+            var q = from doctor in d
+                    join clinic in c on doctor.ClinicId equals clinic.ClinicId
                     let item = new { ClinicAddress = clinic.Address, DoctorName = doctor.Name }
                     group item by item.ClinicAddress into grp
                     select new DoctorWorkaddress()
                     {
                         ClinicAddress = grp.Key,
+                        NumberOfDoctors = grp.Count(),
+                    };
+            return q.ToList();
+        }
+
+        public IList<DoctorOfficeHours> GetDoctorOfficeHours()
+        {
+            var d = this.doctorRepo.GetAll().ToList();
+            var c = this.clinicRepo.GetAll().ToList();
+            var q = from doctor in d
+                    join clinic in c on doctor.ClinicId equals clinic.ClinicId
+                    let item = new { OfficeHours = clinic.Officehours, DoctorName = doctor.Name }
+                    group item by item.OfficeHours into grp
+                    select new DoctorOfficeHours()
+                    {
+                        OfficeHours = grp.Key,
                         NumberOfDoctors = grp.Count(),
                     };
             return q.ToList();

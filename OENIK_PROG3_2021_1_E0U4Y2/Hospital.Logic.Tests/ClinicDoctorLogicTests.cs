@@ -47,11 +47,11 @@ namespace Hospital.Logic.Tests
 
             List<Doctor> doctors = new List<Doctor>()
             {
-                new Doctor() { DoctorId = 1, Name = "Gedeon Umar", ClinicId = 1, Dateofbirth = new DateTime(1980, 1, 1), Degree = "Master of Medicine", Sealnumber = 55321, Specialization = "Cardiology" },
-                new Doctor() { DoctorId = 2, Name = "Eliza Remigio", ClinicId = 2, Dateofbirth = new DateTime(1981, 2, 2), Degree = "Master of Surgery", Sealnumber = 44321, Specialization = "Family Medicine" },
-                new Doctor() { DoctorId = 3, Name = "Larisa Branislav", ClinicId = 3, Dateofbirth = new DateTime(1982, 3, 3), Degree = "Doctor of Medicine", Sealnumber = 33321, Specialization = "Hematology" },
-                new Doctor() { DoctorId = 4, Name = "Vavrinec Daireann", ClinicId = 3, Dateofbirth = new DateTime(1983, 4, 4), Degree = "Doctor of Osteopathic Medicine", Sealnumber = 22321, Specialization = "Medical genetics" },
-                new Doctor() { DoctorId = 5, Name = "Rhagouel Ríoghnach", ClinicId = 2, Dateofbirth = new DateTime(1984, 5, 5), Degree = "Bachelor of Medicine", Sealnumber = 11321, Specialization = "Neurology" },
+                //new Doctor() { DoctorId = 1, Name = "Gedeon Umar", ClinicId = 1, Dateofbirth = new DateTime(1980, 1, 1), Degree = "Master of Medicine", Sealnumber = 55321, Specialization = "Cardiology" },
+                //new Doctor() { DoctorId = 2, Name = "Eliza Remigio", ClinicId = 2, Dateofbirth = new DateTime(1981, 2, 2), Degree = "Master of Surgery", Sealnumber = 44321, Specialization = "Family Medicine" },
+                //new Doctor() { DoctorId = 3, Name = "Larisa Branislav", ClinicId = 3, Dateofbirth = new DateTime(1982, 3, 3), Degree = "Doctor of Medicine", Sealnumber = 33321, Specialization = "Hematology" },
+                //new Doctor() { DoctorId = 4, Name = "Vavrinec Daireann", ClinicId = 3, Dateofbirth = new DateTime(1983, 4, 4), Degree = "Doctor of Osteopathic Medicine", Sealnumber = 22321, Specialization = "Medical genetics" },
+                //new Doctor() { DoctorId = 5, Name = "Rhagouel Ríoghnach", ClinicId = 2, Dateofbirth = new DateTime(1984, 5, 5), Degree = "Bachelor of Medicine", Sealnumber = 11321, Specialization = "Neurology" },
             };
 
             mockedCRepo.Setup(repo => repo.GetAll()).Returns(clinics.AsQueryable());

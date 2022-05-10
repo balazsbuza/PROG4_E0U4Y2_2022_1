@@ -354,10 +354,10 @@ namespace Hospital.Program
 
                 case 2:
                     Console.WriteLine(new string("Task:Name of the clinics and their number of patients by gender"));
-                    foreach (var item in hlogic.GetClinicGenderAsync().Result)
-                    {
-                        Console.WriteLine(item);
-                    }
+                    //foreach (var item in hlogic.GetClinicGenderAsync().Result)
+                    //{
+                    //    Console.WriteLine(item);
+                    //}
 
                     break;
             }

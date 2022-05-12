@@ -64,7 +64,7 @@
             <Label Content="{Binding SelectedPatient.Name}" Padding="5" />
             <Label Content="Doctor" Background="LightBlue" Padding="5" />
             <Label Content="{Binding SelectedDoctor.Name}" Padding="5" />
-            <Button Content="Create Treatment (need doctor+patient)" Command="{Binding CreateTreatmentCommand}" Margin="10" />
+            <Button Content="Create Tr. (choose doctor then patient)" Command="{Binding CreateTreatmentCommand}" Margin="10" />
             <Button Content="Delete Treatment" Command="{Binding DeleteTreatmentCommand}" Margin="10" />
             <Button Content="Update Treatment" Command="{Binding UpdateTreatmentCommand}" Margin="10" />
             <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />

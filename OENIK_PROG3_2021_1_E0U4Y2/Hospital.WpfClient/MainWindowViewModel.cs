@@ -129,7 +129,7 @@ namespace Hospital.WpfClient
                     OnPropertyChanged("PatientTreatmentLastYear");
                     (CreateTreatmentCommand as RelayCommand).NotifyCanExecuteChanged();
                     (DeletePatientCommand as RelayCommand).NotifyCanExecuteChanged();
-                }
+                }                
             }
         }
 
@@ -194,7 +194,6 @@ namespace Hospital.WpfClient
                     };
                     OnPropertyChanged();
                     (CreatePatientCommand as RelayCommand).NotifyCanExecuteChanged();
-                    (CreateTreatmentCommand as RelayCommand).NotifyCanExecuteChanged();
                 }
             }
         }
@@ -252,7 +251,7 @@ namespace Hospital.WpfClient
                     {
                         Description = SelectedTreatment.Description,
                         PatientId = SelectedPatient.PatientId,
-                        DoctorId = SelectedDoctor.DoctorId,
+                        DoctorId = SelectedPatient.DoctorId,
                         Treatmenttime = DateTime.Now
                     });
                 },

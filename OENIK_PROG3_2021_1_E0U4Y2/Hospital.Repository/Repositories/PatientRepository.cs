@@ -84,20 +84,31 @@ namespace Hospital.Repository
                 return true;
             }
 
-            bool contains = false;
+            //bool contains = false;
+            //foreach (var item in this.GetCtx.Set<Treatment>())
+            //{
+            //    if (id == item.PatientId)
+            //    {
+            //        contains = true;
+            //    }
+            //}
+ 
             foreach (var item in this.GetCtx.Set<Treatment>())
             {
                 if (id == item.PatientId)
                 {
-                    contains = true;
+                    this.GetCtx.Set<Treatment>().Remove(item);
                 }
             }
 
-            if (!contains)
-            {
-                this.GetCtx.Set<Patient>().Remove(entity);
-                this.GetCtx.SaveChanges();
-            }
+            //if (!contains)
+            //{
+            //    this.GetCtx.Set<Patient>().Remove(entity);
+            //    this.GetCtx.SaveChanges();
+            //}
+
+            this.GetCtx.Set<Patient>().Remove(entity);
+            this.GetCtx.SaveChanges();
 
             var check = this.GetOne(id);
             if (check == null)

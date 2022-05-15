@@ -35,13 +35,16 @@ namespace Hospital.Repository
         public void ChangeDescription(int id, string newdesc)
         {
             var treatment = this.GetOne(id);
-            if (treatment == null)
-            {
-                throw new InvalidOperationException("Treatment not found!");
-            }
+            //if (treatment == null)
+            //{
+            //    throw new InvalidOperationException("Treatment not found!");
+            //}
 
-            treatment.Description = newdesc;
-            this.GetCtx.SaveChanges();
+            if (treatment != null)
+            {
+                treatment.Description = newdesc;
+                this.GetCtx.SaveChanges();
+            }
         }
 
         /// <summary>

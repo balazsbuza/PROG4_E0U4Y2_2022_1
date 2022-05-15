@@ -20,6 +20,7 @@ namespace Hospital.Data.Tables
         public HospitalDbContext()
         {
             this.Database.EnsureCreated();
+            //spamming next
         }
 
         /// <summary>

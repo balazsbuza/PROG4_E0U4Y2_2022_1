@@ -97,8 +97,9 @@ function display() {
     document.getElementById('results').innerHTML = "";
     Patients.forEach(t => {
         document.getElementById('results').innerHTML +=
-            "<tr><td>" + t.patientId + "</td><td>"
-            + t.name + "</td><td>" +
+            "<tr><td>" + t.patientId + "</td><td>" +
+         t.name + "</td><td>" +
+         t.disease + "</td><td>" +
         `<button type="button" onclick="remove(${t.patientId})">Delete</button>` +
         `<button type="button" onclick="showupdate(${t.patientId})">Update</button>`
             + "</td></tr>";

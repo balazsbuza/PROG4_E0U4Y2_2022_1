@@ -1,7 +1,7 @@
-﻿let Clinics = [];
+﻿let Patients = [];
 let connection = null;
 
-let clinicIdToUpdate = -1;
+let patientIdToUpdate = -1;
 
 let noncrud_1 = [];
 let noncrud_2 = [];
@@ -18,15 +18,17 @@ function setupSignalR() {
         .configureLogging(signalR.LogLevel.Information)
         .build();
 
-    connection.on("ClinicCreated", (user, message) => {
+    connection.on("PatientCreated", (user, message) => {
         getdata();
+        getnondata_2();
     });
 
-    connection.on("ClinicDeleted", (user, message) => {
+    connection.on("PatientDeleted", (user, message) => {
         getdata();
+        getnondata_2();
     });
 
-    connection.on("ClinicUpdated", (user, message) => {
+    connection.on("PatientUpdated", (user, message) => {
         getdata();
     });
 
@@ -49,11 +51,11 @@ async function start() {
 };
 
 async function getdata() {
-    await fetch('http://localhost:43747/Clinic')
+    await fetch('http://localhost:43747/Patient')
         .then(x => x.json())
         .then(y => {
-            Clinics = y;
-            //console.log(Clinics);
+            Patients = y;
+            //console.log(Patients);
             display();
         });
 }
@@ -93,12 +95,12 @@ async function getnondata_3() {
 
 function display() {
     document.getElementById('results').innerHTML = "";
-    Clinics.forEach(t => {
+    Patients.forEach(t => {
         document.getElementById('results').innerHTML +=
-            "<tr><td>" + t.clinicId + "</td><td>"
+            "<tr><td>" + t.patientId + "</td><td>"
             + t.name + "</td><td>" +
-        `<button type="button" onclick="remove(${t.clinicId})">Delete</button>` +
-        `<button type="button" onclick="showupdate(${t.clinicId})">Update</button>`
+        `<button type="button" onclick="remove(${t.patientId})">Delete</button>` +
+        `<button type="button" onclick="showupdate(${t.patientId})">Update</button>`
             + "</td></tr>";
     });
 }
@@ -132,10 +134,8 @@ function noncrud_3_d() {
     });
 }
 
-
-
 function remove(id) {
-    fetch('http://localhost:43747/Clinic/' + id, {
+    fetch('http://localhost:43747/Patient/' + id, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json', },
         body: null
@@ -150,18 +150,20 @@ function remove(id) {
 }
 
 function showupdate(id) {
-    document.getElementById('clinicaddresstoupdate').value = Clinics.find(t => t['clinicId'] == id)['address']
+    document.getElementById('patientdiseasetoupdate').value = Patients.find(t => t['patientId'] == id)['disease']
     document.getElementById('updateformdiv').style.display = 'flex';
-    clinicIdToUpdate = id;
+    patientIdToUpdate = id;
 }
 
 function create() {
-    let name = document.getElementById('clinicname').value;
-    fetch('http://localhost:43747/Clinic', {
+    let name = document.getElementById('patientname').value;
+    let gender = document.getElementById('patientgender').value;
+    let doctorid = document.getElementById('doctorid').value;
+    fetch('http://localhost:43747/Patient', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
-            { name: name })
+            { name: name, doctorId: doctorid, gender: gender})
     })
         .then(response => response)
         .then(data => {
@@ -175,18 +177,19 @@ function create() {
 function update() {
     document.getElementById('updateformdiv').style.display = 'none';
 
-    let clinicIdtoup = clinicIdToUpdate;
-    let nametoup = Clinics.find(t => t['clinicId'] == clinicIdToUpdate)['name'];
-    let companytoup = Clinics.find(t => t['clinicId'] == clinicIdToUpdate)['company'];
-    let officehourstoup = Clinics.find(t => t['clinicId'] == clinicIdToUpdate)['officehours'];
-    let phonetoup = Clinics.find(t => t['clinicId'] == clinicIdToUpdate)['phone'];
-    let addresstoup = document.getElementById('clinicaddresstoupdate').value;
+    let patientIdtoup = patientIdToUpdate;
+    let nametoup = Patients.find(t => t['patientId'] == patientIdToUpdate)['name'];
+    let gendertoup = Patients.find(t => t['patientId'] == patientIdToUpdate)['gender'];
+    let datofbirthtoup = Patients.find(t => t['patientId'] == patientIdToUpdate)['datofbirth'];
+    let nameofmothertoup = Patients.find(t => t['patientId'] == patientIdToUpdate)['nameofmother'];
+    //let doctortoup = Patients.find(t => t['patientId'] == patientIdToUpdate)['doctor'];
+    let diseasetoup = document.getElementById('patientdiseasetoupdate').value;
 
-    fetch('http://localhost:43747/Clinic', {
+    fetch('http://localhost:43747/Patient', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
-            { clinicId: clinicIdtoup, name: nametoup, company: companytoup, officehours: officehourstoup, phone: phonetoup, address: addresstoup }),
+            { patientId: patientIdtoup, name: nametoup, gender: gendertoup, datofbirth: datofbirthtoup, nameofmother: nameofmothertoup, disease: diseasetoup }),
     })
         .then(response => response)
         .then(data => {

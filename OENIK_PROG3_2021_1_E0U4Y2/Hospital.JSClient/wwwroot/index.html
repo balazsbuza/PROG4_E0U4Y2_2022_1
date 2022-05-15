@@ -6,24 +6,28 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <center><h1>Clinic Infographic</h1></center>
+    <center><h1>Hospital Infographic</h1></center>
 
     <div id="formdiv">
-        <label>Clinic Name</label>
-        <input type="text" id="clinicname" />
-        <button type="button" onclick="create()">Add Clinic</button>
+        <label>Patient Name</label>
+        <input type="text" id="patientname" />
+        <label>Doctor Id (1-4)</label>
+        <input type="text" id="doctorid" />
+        <label>Patient Gender (M/F/O)</label>
+        <input type="text" id="patientgender" />
+        <button type="button" onclick="create()">Add Patient</button>
     </div>
 
     <div id="updateformdiv">
-        <label>Clinic Address</label>
-        <input type="text" id="clinicaddresstoupdate" />
-        <button type="button" onclick="update()">Update Clinic</button>
+        <label>Patient Disease</label>
+        <input type="text" id="patientdiseasetoupdate" />
+        <button type="button" onclick="update()">Update Patient</button>
     </div>
 
     <table>
         <thead>
             <tr>
-                <th>ClinicId</th>
+                <th>PatientId</th>
                 <th>Name</th>
                 <th>Actions</th>
             </tr>

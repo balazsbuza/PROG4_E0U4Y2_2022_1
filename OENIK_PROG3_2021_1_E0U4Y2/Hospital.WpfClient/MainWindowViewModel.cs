@@ -312,6 +312,7 @@ namespace Hospital.WpfClient
                 DeletePatientCommand = new RelayCommand(() =>
                 {
                     Patients.Delete(SelectedPatient.PatientId);
+                    Treatments = new RestCollection<Treatment>("http://localhost:43747/", "Treatment", "hub");
                 },
                 () =>
                 {

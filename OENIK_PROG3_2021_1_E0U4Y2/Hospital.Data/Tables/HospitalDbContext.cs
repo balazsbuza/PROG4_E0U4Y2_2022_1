@@ -48,8 +48,6 @@ namespace Hospital.Data.Tables
         /// <param name="optionsBuilder">Building options.</param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
-
             if (optionsBuilder == null)
             {
                 throw new ArgumentNullException(nameof(optionsBuilder));

@@ -91,6 +91,12 @@ namespace Hospital.Endpoint
                 await context.Response.WriteAsJsonAsync(response);
             }));
 
+            app.UseCors(x => x
+                .AllowCredentials()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .WithOrigins("http://localhost:8738"));
+
             app.UseRouting();
 
             app.UseAuthorization();
